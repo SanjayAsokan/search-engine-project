@@ -13,6 +13,10 @@ app.use(express.json());
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", searchRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Search Microservice is running! Use /api/v1/search/product to test.');
+});
+
 // Health check API
 app.get("/health", (req, res) => {
   res.status(200).json({
